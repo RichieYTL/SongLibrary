@@ -2,8 +2,8 @@ package SongLibrary;
 
 public class List {
 
-	static Song top;
-	static Song selection;
+	static Object top;
+	static Object selection;
 	static int numSongs;
 	
 	public List(){
@@ -18,7 +18,7 @@ public class List {
 	}	
 	
 	
-	Song current = top;
+	Object current = top;
 	
 	for (int i = 0; i <numSongs; i++)
 	{
@@ -30,11 +30,6 @@ public class List {
 		
 		return false;
 	}
-	
-	
-	
-	
-	
 	
 	
 	

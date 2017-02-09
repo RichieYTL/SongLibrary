@@ -2,10 +2,10 @@ package SongLibrary;
 
 public class Song implements Comparable<Song>{
 	 
-	 private String Title;
-	 private String Artist;
-	 private String Album;
-	 private String Year;
+	  String Title;
+	  String Artist;
+	  String Album;
+	  String Year;
 
 	/**
 	 * Constructor for Objects
@@ -23,6 +23,15 @@ public class Song implements Comparable<Song>{
 		this.Album = Album;
 		this.Year = Year;
 		
+	}
+	
+	/**
+	 * Constructor for just Title and Artist
+	 * @param Title = Song title
+	 * @param Artist = Song Artist
+	 */
+	public Song(String Title, String Artist){
+		this(Title, Artist, "","");
 	}
 	
 	/**

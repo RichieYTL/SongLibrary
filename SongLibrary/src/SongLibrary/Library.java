@@ -1,53 +1,57 @@
 package SongLibrary;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import javafx.collections.ObservableList;
-import javafx.print.Printer;
-import java.io.FileWriter;
 
 public class Library{
 	
-	static Song top;
+	static Song front;
 	static Song selection;
 	static int numSongs;
-	ArrayList<Song> library = new ArrayList<Song>();
-	
 	public Library()
 	{
 		numSongs = 0;
-		selection = top;
+		selection = front;
 		
 	}
 
 	//To add song(s)
-	public void addSong(Song Title, Song Artist, Song Album, Song Year){
-
-		library.add(Title);
-		library.add(Artist);
-		library.add(Album);
-		library.add(Year);	
+	public boolean addSong(Song song){
 		
+		if(Library.selection != null && Library.front != null){
+			numSongs++;
+			selection = song;
+		}
+		if (front == null){
+			front = song;
+		}
+		numSongs++;
+		return true;
 	}
+		
 	
 	//To remove song(s)
-	public void removeSong(Song Title, Song Artist, Song Album, Song Year){
+	private static void deleteSong(Song song){
+		
+		numSongs--;
 
-		library.remove(Title);
-		library.remove(Artist);
-		library.remove(Album);
-		library.remove(Year);	
+		Library.deleteSong(song);	
 		
 	}
 	
 	//To edit song(s)
-	public static void editSong(Song Title, Song Artist, Song Album, Song Year){
+	private static void editSong(Song song) {
+		Library.editSong(song);
 		
 	}
-	
-	static void writeStringToFile(File file, String data){
+	public static int getIndex(Song song){
+		int index = 0;
+		if(song == null){
+			return 0;
+		}
+		Song currentSong = front;
+		if(currentSong == null){
+			return 0;
 		
+		}
 		
+		return index;
 	}
-
-
 }

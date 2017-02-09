@@ -1,11 +1,11 @@
 package SongLibrary;
 
-public class Song {
+public class Song implements Comparable<Song>{
 	 
 	 private String Title;
 	 private String Artist;
 	 private String Album;
-	 private int Year;
+	 private String Year;
 
 	/**
 	 * Constructor for Objects
@@ -16,7 +16,7 @@ public class Song {
 	 * @param Year = Song year
 	 */
 	
-	public Song(String Title, String Artist, String Album, int Year) 
+	public Song(String Title, String Artist, String Album, String Year) 
 	{
 		this.Title = Title;
 		this.Artist = Artist;
@@ -54,7 +54,7 @@ public class Song {
 	 * Year Getter
 	 * @return the Year of the Song
 	 */
-	public int getYear(){
+	public String getYear(){
 		return this.Year;
 	}
 	
@@ -86,13 +86,30 @@ public class Song {
 	 * Year Setter
 	 * @param set the Year of the Song
 	 */
-	public void setYear(int Year){
+	public void setYear(String Year){
 		this.Year = Year;
 	}
 	
-	//toString to return the string with the song information
-	public String toString(){
-		return Title + "by" + Artist + "from the album" + Album + "released in" + Year;
+	/**
+	 * compareTo compares the string to make sure user is not entering the same song
+	 */
+	@Override
+	public int compareTo(Song obj){
+		return Title.toLowerCase().compareTo(obj.Title.toLowerCase());
+	}
+
+	/**
+	 * equals method checks to see if a songs artist and title are duplicates
+	 */
+	public boolean equals(Object obj){
+		if(this == obj){
+			return true;
+			}
+		if (obj == null){
+			return false;
+		}
+		Song song = (Song) obj;
+		return Title.equalsIgnoreCase(song.Title) && Artist.equalsIgnoreCase(song.Artist);
 	}
 	
 }

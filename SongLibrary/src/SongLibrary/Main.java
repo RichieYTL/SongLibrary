@@ -21,12 +21,21 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 
 public class Main extends Application {
 	
 	Stage window;
 	TableView<Song> table;
 	TextField title, artist, album, year;
+	public static Song songList;
+	static String fileName;
 	
 	public static void main(String[] args){
 		launch(args);
@@ -34,13 +43,19 @@ public class Main extends Application {
 
 
 	@Override
-	public void start(Stage primaryStage){
+	public void start(Stage primaryStage) throws IOException{
 		window = primaryStage;
 		window.setTitle("Song Library");
 		primaryStage.setResizable(false);
 		primaryStage.show();
 		TableView<Song> table;
-			
+
+		
+		fileName = (new java.io.File(".").getCanonicalPath()) + "Songs.txt"	;
+		songList = new Song();
+		
+		
+		
 		//Column for Titles
 		TableColumn<Song, String> titleColumn = new TableColumn<>("Title");
 		titleColumn.setMinWidth(200);
@@ -116,11 +131,6 @@ public class Main extends Application {
 		window.setScene(scene);
 		
 	}
-	
-	 private ObservableList<Song> getTitle() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 	//Action handler for add button
@@ -153,6 +163,18 @@ public class Main extends Application {
 
 	}
 	
+	public static void readFromFile(Song songlist, BufferedReader songFile) throws IOException{
+		
+	}
+	
+	public static void writeToFile(Song songList, String fileName) throws IOException{
+		FileWriter fileWriter = new FileWriter(fileName);
+		BufferedWriter songFile = new BufferedWriter(fileWriter);
+		
+		Song current = Song.next;
+		
+	
+	}
 	
 	public ObservableList<Song> getSong(){
 		ObservableList<Song> songs = FXCollections.observableArrayList();

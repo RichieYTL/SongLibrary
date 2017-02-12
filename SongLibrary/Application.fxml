@@ -2,74 +2,109 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
-  <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Controls">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Add" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Edit" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About..." />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
-            <Button layoutX="14.0" layoutY="330.0" mnemonicParsing="false" text="Add" />
-            <Button layoutX="64.0" layoutY="330.0" mnemonicParsing="false" text="Edit" />
-            <Button layoutX="561.0" layoutY="330.0" mnemonicParsing="false" text="Delete" textAlignment="CENTER" />
-            <ScrollPane layoutX="6.0" prefHeight="313.0" prefWidth="617.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="313.0" prefWidth="610.0">
-                     <opaqueInsets>
-                        <Insets left="4.0" />
-                     </opaqueInsets></AnchorPane>
-              </content>
-               <opaqueInsets>
-                  <Insets top="4.0" />
-               </opaqueInsets>
-            </ScrollPane>
-      </children>
-    </AnchorPane>
-  </children>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <GridPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="328.0" minHeight="10.0" prefHeight="273.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="139.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <VBox prefHeight="140.0" prefWidth="381.0">
+                     <children>
+                        <HBox prefHeight="30.0" prefWidth="200.0">
+                           <children>
+                              <TextField prefHeight="27.0" prefWidth="405.0" promptText="Title" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="200.0">
+                           <children>
+                              <TextField prefHeight="27.0" prefWidth="405.0" promptText="Album" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="200.0">
+                           <children>
+                              <TextField prefHeight="27.0" prefWidth="405.0" promptText="Year" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="200.0">
+                           <children>
+                              <TextField prefHeight="27.0" prefWidth="405.0" promptText="Artist" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="110.0" prefWidth="300.0">
+                     <children>
+                        <HBox alignment="TOP_RIGHT" prefHeight="10.0" prefWidth="260.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="61.0" text="Add">
+                                 <HBox.margin>
+                                    <Insets bottom="13.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                        <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="260.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="61.0" text="Edit">
+                                 <HBox.margin>
+                                    <Insets bottom="13.0" right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                        <HBox alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="260.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="61.0" text="Delete">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <ListView prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </GridPane>
+      <MenuBar prefHeight="29.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Save" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

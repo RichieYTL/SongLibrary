@@ -1,6 +1,6 @@
-package SongLibrary;
+package app;
 
-public class Song{
+public class Song implements Comparable<Song>{
 	 
 	  private String Title;
 	  private String Artist;
@@ -31,6 +31,7 @@ public class Song{
 	 * @param Artist = Song Artist
 	 */
 	public Song(String Title, String Artist){
+		
 		this(Title, Artist, "","");
 	}
 	
@@ -39,6 +40,7 @@ public class Song{
 	 * @return the title of the song
 	 */
 	public String getTitle(){
+		
 		return this.Title;
 		
 	}
@@ -48,6 +50,7 @@ public class Song{
 	 * @return the Artist of the song
 	 */
 	public String getArtist(){
+		
 		return this.Artist;
 	}
 	
@@ -56,6 +59,7 @@ public class Song{
 	 * @return the Album of the song
 	 */
 	public String getAlbum(){
+		
 		return this.Album;
 	}
 
@@ -64,6 +68,7 @@ public class Song{
 	 * @return the Year of the Song
 	 */
 	public String getYear(){
+		
 		return this.Year;
 	}
 	
@@ -72,6 +77,7 @@ public class Song{
 	 * @param set the Title of the Song
 	 */
 	public void setTitle(String Title){
+		
 		this.Title = Title;
 	}
 	
@@ -80,6 +86,7 @@ public class Song{
 	 * @param set the Artist of the Song
 	 */
 	public void setArtist(String Artist){
+		
 		this.Artist = Artist;
 	}
 	
@@ -88,6 +95,34 @@ public class Song{
 	 * @param set the Album of the Song
 	 */
 	public void setAlbum(String Album){
+		
 		this.Album = Album;
+	}
+
+	/**
+	 * Year Setter
+	 * @param set the Year of the Song
+	 */
+	public void setYear(String Year) {
+		
+		this.Year = Year;
+	}
+
+	@Override
+	public int compareTo(Song o) {	
+		
+		return this.Artist.compareTo(o.Artist);
+	}
+	
+	public int duplicate(Song o){
+		
+		if (o.Title.equalsIgnoreCase(this.Title) && o.Artist.equalsIgnoreCase(this.Artist)){
+			return 1;
+		}
+		return -1;
+	}
+	
+	public String toString(){
+		return (" " + Title + " " + Artist + " " + Album + " " + Year);
 	}
 }

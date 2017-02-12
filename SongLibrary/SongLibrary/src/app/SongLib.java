@@ -2,11 +2,14 @@ package app;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import java.io.BufferedReader;
+import java.io.PrintWriter;;
 
 public class SongLib extends Application {
 	
@@ -39,13 +42,55 @@ public class SongLib extends Application {
 		primaryStage.show();
 		
 		
-		//load the library text file with songs. If text is not found, create a new text file.
-		File file = new File("Library.txt");
-		if(!(file.exists())){
-			file.createNewFile();
-		}
+		
 	}
 	
+	/**
+	 * Method to write text to a file.
+	 * @param listOfSongs is the list of songs from the application
+	 * @throws Exception
+	 */
+	public static void writeFromFile(ObservableList<Song> listOfSongs) throws Exception{
+
+		File file = new File("Library.txt");
+		String delimiter = " ";
+		
+		if(!file.exists()){
+			file.createNewFile();
+		}
+		
+		PrintWriter writer = new PrintWriter(file);
+		for(Song song : listOfSongs){	
+			writer.println(song.getTitle() + delimiter + song.getArtist() + delimiter +
+					song.getAlbum() + delimiter + song.getYear());
+		}
+		writer.close();
+		
+	}
+	/**
+	 * Method to read text from a file
+	 * @param listOfSongs is the library of songs from the application
+	 * @throws Exception
+	 */
+	public static void readFromFile(ObservableList<Song> listOfSongs) throws Exception{
+		
+		BufferedReader br = new BufferedReader(new FileReader("Library.txt"));
+		
+		try {
+		    StringBuilder sb = new StringBuilder();
+		    String line = br.readLine();
+
+		    while (line != null) {
+		        sb.append(line);
+		        sb.append(System.lineSeparator());
+		        line = br.readLine();
+		    }  
+		} 
+		finally {
+		    br.close();
+		}	
+	}
+		
 	//method for adding songs to the library
 	public boolean addSong(String Title, String Artist, String Album, String Year){
 		Song newSong = new Song(Title, Artist, Album, Year);
@@ -75,16 +120,6 @@ public class SongLib extends Application {
 			return false;
 	}
 		
-		
-		
-	
-	
-	
-	
-	
-	
-	
-	
 	//launch the application
 	public static void main(String[] args){
 		launch(args);

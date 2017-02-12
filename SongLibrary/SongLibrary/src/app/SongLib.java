@@ -50,7 +50,7 @@ public class SongLib extends Application {
 	 * @param listOfSongs is the list of songs from the application
 	 * @throws Exception
 	 */
-	public static void writeFromFile(ObservableList<Song> listOfSongs) throws Exception{
+	public static void writeToFile(ObservableList<Song> listOfSongs) throws Exception{
 
 		File file = new File("Library.txt");
 		String delimiter = " ";

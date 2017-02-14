@@ -1,4 +1,5 @@
 package app;
+
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import java.io.File;
@@ -8,12 +9,11 @@ import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import java.io.BufferedReader;
-import java.io.PrintWriter;;
+import java.io.PrintWriter;
 
 public class SongLib extends Application {
-	
-	//create an observable list of songs;
 	public ObservableList<Song> listOfSongs;
 	
 	@Override
@@ -22,7 +22,7 @@ public class SongLib extends Application {
 		
 		//set the location of the FXML file to be loaded
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/SongLibrary/src/view/Application.fxml"));
+		loader.setLocation(getClass().getResource("/view/F2C.fxml"));
 		
 		//load the FXML file
 		Parent root;
@@ -92,7 +92,9 @@ public class SongLib extends Application {
 	}
 		
 	//method for adding songs to the library
-	public boolean addSong(String Title, String Artist, String Album, String Year){
+	public boolean addSong(String Title, String Artist, String Album, String Year, ObservableList<Song> listOfSongs){
+		//create an observable list of songs;
+		
 		Song newSong = new Song(Title, Artist, Album, Year);
 		
 		for(Song s : listOfSongs){
@@ -104,11 +106,21 @@ public class SongLib extends Application {
 	}
 	
 	//method for editing songs in the library
-	public boolean editSong(){
+	/*public boolean editSong(Song o, String Title, String Artist, String Album, String Year){
+		Song selection = o;
+		listOfSongs.remove(o);
 		
-		
-	return true;	
+		if(!addSong(Title, Artist, Album, Year))
+		{
+			addSong(selection.getTitle(), selection.getArtist(), selection.getAlbum(), 
+					selection.getYear());
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
+	*/
 	
 	//method for deleting songs in the library
 	public boolean deleteSong(Song o){

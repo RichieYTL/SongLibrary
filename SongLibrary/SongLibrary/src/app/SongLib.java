@@ -22,7 +22,7 @@ public class SongLib extends Application {
 		
 		//set the location of the FXML file to be loaded
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/view/F2C.fxml"));
+		loader.setLocation(getClass().getResource("/view/Application.fxml"));
 		
 		//load the FXML file
 		Parent root;
